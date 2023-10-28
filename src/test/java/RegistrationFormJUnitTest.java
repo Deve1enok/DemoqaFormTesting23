@@ -10,10 +10,8 @@ public class RegistrationFormJUnitTest {
     @BeforeAll
     static void beforeALL() {
         Configuration.browserSize = "1920x1080";
-        //Configuration.browser = "firefox";
         Configuration.timeout = 6000;
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
     }
 
@@ -34,7 +32,18 @@ public class RegistrationFormJUnitTest {
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("[for='hobbies-checkbox-1']").click();
         $("[for='hobbies-checkbox-3']").click();
-        // $("[for=uploadPicture]").click();
+        $("#uploadPicture").uploadFromClasspath("CssNEO.jpg");
+        $("#currentAddress").setValue("Challenger Ionia");
+        $("#state").click();
+        $("#react-select-3-input").setValue("NCR").pressEnter();
+        $("#city").click();
+        $("#react-select-4-input").setValue("Noida").pressEnter();
+        $("#submit").click();
+        $("#closeLargeModal").click();
+
+
+
+
 
 
 
