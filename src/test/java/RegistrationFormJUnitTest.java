@@ -3,8 +3,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class RegistrationFormJUnitTest {
@@ -20,10 +20,12 @@ public class RegistrationFormJUnitTest {
     @Test
     void RegistrationForm() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Din");
         $("#lastName").setValue("Dinov");
         $("#userEmail").setValue("DinDinov@gmail.com");
-        $("[for='gender-radio-1']").click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("8777987654");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("July");
@@ -31,8 +33,8 @@ public class RegistrationFormJUnitTest {
         $(".react-datepicker__day--004").click();
         $("#subjectsInput").setValue("Physics").pressEnter();
         $("#subjectsInput").setValue("Maths").pressEnter();
-        $("[for='hobbies-checkbox-1']").click();
-        $("[for='hobbies-checkbox-3']").click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
         $("#uploadPicture").uploadFromClasspath("CssNEO.jpg");
         $("#currentAddress").setValue("Challenger Ionia");
         $("#state").click();
@@ -51,6 +53,8 @@ public class RegistrationFormJUnitTest {
         $(".table-responsive").shouldHave(text("CssNEO.jpg"));
         $(".table-responsive").shouldHave(text("Challenger Ionia"));
         $(".table-responsive").shouldHave(text("NCR Noida"));
+
+
 
 
 
