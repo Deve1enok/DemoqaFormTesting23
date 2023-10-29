@@ -2,6 +2,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -39,7 +40,17 @@ public class RegistrationFormJUnitTest {
         $("#city").click();
         $("#react-select-4-input").setValue("Noida").pressEnter();
         $("#submit").click();
-        $("#closeLargeModal").click();
+
+        $(".table-responsive").shouldHave(text("Din Dinov"));
+        $(".table-responsive").shouldHave(text("DinDinov@gmail.com"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("8777987654"));
+        $(".table-responsive").shouldHave(text("04 July,1997"));
+        $(".table-responsive").shouldHave(text("Physics, Maths"));
+        $(".table-responsive").shouldHave(text("Sports, Music"));
+        $(".table-responsive").shouldHave(text("CssNEO.jpg"));
+        $(".table-responsive").shouldHave(text("Challenger Ionia"));
+        $(".table-responsive").shouldHave(text("NCR Noida"));
 
 
 
