@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormJUnitTest {
     @BeforeAll
-    static void beforeALL() {
+    static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 6000;
         Configuration.pageLoadStrategy = "eager";
